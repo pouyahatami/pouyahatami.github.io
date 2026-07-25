@@ -201,6 +201,21 @@ section {
   color: var(--text-muted);
 }
 
+.logo-badge {
+  display: inline-block;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  line-height: 0;
+}
+
+.logo-badge img {
+  display: block;
+  height: 22px;
+  width: auto;
+}
+
 .photo-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
