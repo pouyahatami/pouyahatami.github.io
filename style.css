@@ -201,6 +201,34 @@ section {
   color: var(--text-muted);
 }
 
+.photo-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.photo-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.photo-caption {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+@media (max-width: 600px) {
+  .photo-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
 footer {
   border-top: 1px solid var(--border);
   padding: 28px 0;
