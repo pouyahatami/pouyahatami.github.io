@@ -55,14 +55,29 @@
       <a class="source-link" href="https://github.com/UBC-ORCA/riscv-debug-tutorial" target="_blank" rel="noopener">View tutorial &rarr;</a>
     </div>
 
+    <div class="card flagship">
+      <p class="tag">Flagship</p>
+      <h3>FPGA iPod</h3>
+      <p class="meta">SystemVerilog, PicoBlaze Assembly &middot; DE1-SoC FPGA &middot; ModelSim, Quartus, SignalTap</p>
+      <p>Finite state machines that read audio data from onboard flash memory and stream it to a DAC for playback &mdash; simulating the core functionality of an iPod, controlled over a PS/2 keyboard.</p>
+      <ul>
+        <li>Designed an Address Handler FSM and a Flash Reader FSM, communicating through a start-finish protocol, to calculate addresses and stream audio samples from flash</li>
+        <li>Built PS/2 keyboard control: <code>E</code> starts the song, <code>D</code> stops it, <code>F</code>/<code>B</code> play forward/reverse, <code>R</code> restarts, and KEY0&ndash;KEY2 adjust playback speed</li>
+        <li>Extended the system with a DSP audio-strength meter: a PicoBlaze interrupt routine accumulates 256 samples, averages them by a bit shift, and drives an LED readout of signal intensity in real time</li>
+        <li>Verified both FSMs in ModelSim, then confirmed correct behavior live on hardware with the SignalTap Logic Analyzer</li>
+      </ul>
+      <a class="source-link" href="https://github.com/pouyahatami/fpga-ipod" target="_blank" rel="noopener">View source &rarr;</a>
+    </div>
+
     <div class="card">
       <h3>RC4 FPGA Cracker</h3>
-      <p class="meta">Jun 2025 &middot; SystemVerilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
-      <p>A hardware key-recovery attack on the RC4 stream cipher.</p>
+      <p class="meta">Jun 2025 &middot; SystemVerilog, VHDL &middot; DE1-SoC FPGA &middot; ModelSim, Quartus, SignalTap</p>
+      <p>A decryption circuit targeting the RC4 stream cipher, using a brute-force approach to explore the entire keyspace and identify the correct key.</p>
       <ul>
-        <li>Implemented four parallel FSM-based cores, each scanning a distinct keyspace segment to parallelize the search</li>
-        <li>Used a start/finish protocol for inter-core communication, synchronizing a halt across all cores once a valid key was found</li>
-        <li>Verified KSA (key-scheduling algorithm) behavior and end-to-end decryption with ModelSim testbenches for every module</li>
+        <li>Parallelized the search across four independent cores, each responsible for a distinct segment of the key domain; once any core finds the key, all others stop immediately</li>
+        <li>Designed three per-core state machines that communicate with the core's datapath controller using a start-finish protocol, implementing RC4's key-scheduling algorithm (KSA)</li>
+        <li>Used the Quartus In-System Memory Content Editor to inspect RAM/ROM in real time and read the recovered plaintext back out as an ASCII message</li>
+        <li>Verified KSA behavior and end-to-end decryption with ModelSim testbenches, then confirmed on hardware with SignalTap</li>
       </ul>
       <a class="source-link" href="https://github.com/pouyahatami/rc4-fpga-cracker" target="_blank" rel="noopener">View source &rarr;</a>
     </div>
