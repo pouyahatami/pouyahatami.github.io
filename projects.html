@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects &mdash; Pouya Hatami</title>
+<meta name="description" content="FPGA, embedded systems, and firmware projects by Pouya Hatami.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="index.html">Pouya Hatami</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Projects</h1>
+  <p class="lede">Hardware and firmware projects, from FPGA processors to real-time embedded control.</p>
+
+  <section style="margin-top:40px;">
+
+    <div class="card flagship">
+      <p class="tag">Flagship</p>
+      <h3>Simple RISC Machine</h3>
+      <p class="meta">Nov 2024 &middot; Verilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
+      <p>A 16-bit RISC processor designed and implemented in Verilog, then deployed on an FPGA.</p>
+      <ul>
+        <li>Built a datapath architecture &mdash; registers, ALU, and multiplexers &mdash; to perform arithmetic operations such as addition and subtraction</li>
+        <li>Designed a finite state machine (FSM) for instruction execution, automating control signals and managing state transitions</li>
+        <li>Wrote testbenches for each module to verify functional correctness through simulation</li>
+      </ul>
+      <a class="source-link" href="https://github.com/pouyahatami/simple-risc-machine" target="_blank" rel="noopener">View source &rarr;</a>
+    </div>
+
+    <div class="card">
+      <h3>Reflow Oven Controller</h3>
+      <p class="meta">Feb 2024 &middot; EFM8 microcontroller</p>
+      <p>Designed and built a reflow oven controller to automate PCB soldering.</p>
+      <ul>
+        <li>Implemented temperature measurement using a K-type thermocouple with cold junction compensation, achieving &plusmn;3&deg;C accuracy</li>
+        <li>Developed a PWM control system to regulate a 1500W toaster oven via a solid-state relay (SSR)</li>
+        <li>Designed a pushbutton + LCD interface to select reflow profiles and display temperature, time, and process state</li>
+        <li>Enabled temperature monitoring by streaming data over a serial connection to a PC for strip-chart plotting</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Interrupt-Driven Real-Time Alarm Clock</h3>
+      <p class="meta">Jan 2024 &middot; N76E003 microcontroller &middot; Assembly</p>
+      <p>An alarm clock system programmed in assembly language on the N76E003 microcontroller.</p>
+      <ul>
+        <li>Implemented timer interrupts to handle multiple concurrent tasks &mdash; timekeeping, user input, and alarm triggering</li>
+        <li>Displayed time in 12-hour format (AM/PM) on an LCD, with real-time clock adjustment via pushbuttons</li>
+        <li>Designed an interrupt service routine (ISR) generating a 2kHz square wave for the alarm sound through a mini speaker</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>FSM Lock</h3>
+      <p class="meta">Verilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
+      <p>A digital combination lock implemented as a finite state machine in Verilog.</p>
+      <ul>
+        <li>Simulated and synthesized the design with ModelSim and Quartus</li>
+        <li>Built user interaction through pushbuttons and seven-segment displays</li>
+      </ul>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Pouya Hatami</span>
+    <span>Vancouver, BC</span>
+  </div>
+</footer>
+
+</body>
+</html>
