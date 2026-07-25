@@ -22,14 +22,54 @@
 
 <main class="wrap">
   <h1>Projects</h1>
-  <p class="lede">Hardware and firmware projects, from FPGA processors to real-time embedded control.</p>
+  <p class="lede">Hardware and firmware projects, from FPGA processors and a hand-built GPU to real-time embedded control.</p>
 
   <section style="margin-top:40px;">
 
     <div class="card flagship">
       <p class="tag">Flagship</p>
+      <h3>DE1-SoC GPU</h3>
+      <p class="meta">Dec 2025 &middot; SystemVerilog &middot; DE1-SoC FPGA (Cyclone V) &middot; ModelSim, Quartus</p>
+      <p>A SIMT-style GPU computing parameterized N&times;N matrix multiplication across multiple hardware cores, with all RTL hand-written &mdash; no vendor GPU IP.</p>
+      <ul>
+        <li>Designed a 4-core shared-memory architecture with round-robin arbitration across read and write ports</li>
+        <li>Built a dispatcher FSM to assign work blocks to cores, with race-condition guards for same-cycle done/start handoffs</li>
+        <li>Implemented an 8-state per-core scheduler driving independent A/B operand fetches and a fused multiply-add pipeline</li>
+        <li>Parameterized memory read latency to bridge a simulation/hardware mismatch that produced silent output corruption on real hardware</li>
+        <li>Verified every module with unit testbenches, plus a full-system ModelSim testbench and DE1-SoC synthesis</li>
+      </ul>
+      <a class="source-link" href="https://github.com/pouyahatami/de1-soc-gpu" target="_blank" rel="noopener">View source &rarr;</a>
+    </div>
+
+    <div class="card flagship">
+      <p class="tag">Research</p>
+      <h3>RISC-V Run-Control Debugging</h3>
+      <p class="meta">Dec 2025 &ndash; May 2026 &middot; UBC ECE, Prof. Guy Lemieux &middot; SystemVerilog, Verilator, GDB, OpenOCD</p>
+      <p>Undergraduate research reverse-engineering how run-control debugging works in a RISC-V core, then extending a processor to support it.</p>
+      <ul>
+        <li>Reverse-engineered execution-based debugging in the CV32E20 (an Ibex-derived core) and published an open-source tutorial covering the full GDB&ndash;OpenOCD&ndash;RISC-V Debug Module workflow</li>
+        <li>Extended a single-cycle RV32I processor with run-control debugging in SystemVerilog: a debug FSM, four debug CSRs, ebreak/dret decoding, and next-PC redirection for halt and resume</li>
+        <li>Verified the halt&ndash;park&ndash;resume sequence, including dpc capture and restoration, with a self-checking Verilator testbench emulating Debug Module requests</li>
+        <li>Work recognized by Prof. David Harris, co-author of <em>Digital Design and Computer Architecture</em>, as a potential reference for an upcoming processor-debug chapter</li>
+      </ul>
+      <a class="source-link" href="https://github.com/UBC-ORCA/riscv-debug-tutorial" target="_blank" rel="noopener">View tutorial &rarr;</a>
+    </div>
+
+    <div class="card">
+      <h3>RC4 FPGA Cracker</h3>
+      <p class="meta">Jun 2025 &middot; SystemVerilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
+      <p>A hardware key-recovery attack on the RC4 stream cipher.</p>
+      <ul>
+        <li>Implemented four parallel FSM-based cores, each scanning a distinct keyspace segment to parallelize the search</li>
+        <li>Used a start/finish protocol for inter-core communication, synchronizing a halt across all cores once a valid key was found</li>
+        <li>Verified KSA (key-scheduling algorithm) behavior and end-to-end decryption with ModelSim testbenches for every module</li>
+      </ul>
+      <a class="source-link" href="https://github.com/pouyahatami/rc4-fpga-cracker" target="_blank" rel="noopener">View source &rarr;</a>
+    </div>
+
+    <div class="card">
       <h3>Simple RISC Machine</h3>
-      <p class="meta">Nov 2024 &middot; Verilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
+      <p class="meta">Sep 2024 &middot; Verilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
       <p>A 16-bit RISC processor designed and implemented in Verilog, then deployed on an FPGA.</p>
       <ul>
         <li>Built a datapath architecture &mdash; registers, ALU, and multiplexers &mdash; to perform arithmetic operations such as addition and subtraction</li>
@@ -39,39 +79,29 @@
       <a class="source-link" href="https://github.com/pouyahatami/simple-risc-machine" target="_blank" rel="noopener">View source &rarr;</a>
     </div>
 
+  </section>
+
+  <section>
+    <h2>Earlier projects</h2>
+    <p class="meta" style="margin-bottom:20px;">First-year coursework &mdash; smaller in scope, no source published.</p>
+
     <div class="card">
       <h3>Reflow Oven Controller</h3>
       <p class="meta">Feb 2024 &middot; EFM8 microcontroller</p>
-      <p>Designed and built a reflow oven controller to automate PCB soldering.</p>
-      <ul>
-        <li>Implemented temperature measurement using a K-type thermocouple with cold junction compensation, achieving &plusmn;3&deg;C accuracy</li>
-        <li>Developed a PWM control system to regulate a 1500W toaster oven via a solid-state relay (SSR)</li>
-        <li>Designed a pushbutton + LCD interface to select reflow profiles and display temperature, time, and process state</li>
-        <li>Enabled temperature monitoring by streaming data over a serial connection to a PC for strip-chart plotting</li>
-      </ul>
+      <p>Automated PCB soldering with a K-type thermocouple (&plusmn;3&deg;C accuracy via cold-junction compensation), PWM control of a 1500W oven through a solid-state relay, and a pushbutton + LCD interface for selecting reflow profiles.</p>
     </div>
 
     <div class="card">
       <h3>Interrupt-Driven Real-Time Alarm Clock</h3>
       <p class="meta">Jan 2024 &middot; N76E003 microcontroller &middot; Assembly</p>
-      <p>An alarm clock system programmed in assembly language on the N76E003 microcontroller.</p>
-      <ul>
-        <li>Implemented timer interrupts to handle multiple concurrent tasks &mdash; timekeeping, user input, and alarm triggering</li>
-        <li>Displayed time in 12-hour format (AM/PM) on an LCD, with real-time clock adjustment via pushbuttons</li>
-        <li>Designed an interrupt service routine (ISR) generating a 2kHz square wave for the alarm sound through a mini speaker</li>
-      </ul>
+      <p>Timer-interrupt-driven alarm clock handling concurrent timekeeping, input, and alarm triggering, with a 12-hour LCD display and an ISR generating a 2kHz alarm tone.</p>
     </div>
 
     <div class="card">
       <h3>FSM Lock</h3>
-      <p class="meta">Verilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
-      <p>A digital combination lock implemented as a finite state machine in Verilog.</p>
-      <ul>
-        <li>Simulated and synthesized the design with ModelSim and Quartus</li>
-        <li>Built user interaction through pushbuttons and seven-segment displays</li>
-      </ul>
+      <p class="meta">Verilog &middot; DE1-SoC FPGA</p>
+      <p>A digital combination lock implemented as a finite state machine, with pushbutton and seven-segment display interaction.</p>
     </div>
-
   </section>
 </main>
 

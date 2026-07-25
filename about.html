@@ -32,8 +32,9 @@
       Verilog to the circuit board it eventually runs on.
     </p>
     <p>
-      Outside of coursework, I'm part of UBC Sailbot's Electrical Power Team,
-      working on the battery systems that power an autonomous sailboat.
+      I'm currently an FPGA Developer Intern at Kardium, an undergraduate
+      researcher working on RISC-V debug infrastructure with Prof. Guy Lemieux,
+      and Firmware Lead for UBC Sailbot's autonomous sailboat.
     </p>
   </section>
 
@@ -42,37 +43,43 @@
 
     <div class="exp-item">
       <div class="role-line">
-        <h3>Electrical Power Team Member &mdash; UBC Sailbot</h3>
+        <h3>FPGA Developer Intern &mdash; Kardium Inc</h3>
+        <span class="meta">May 2026 &ndash; Present</span>
+      </div>
+      <p class="meta">Burnaby, BC</p>
+      <ul>
+        <li>Root-caused and corrected ADC power-up sequencing across firmware and FPGA logic on two custom FPGA boards</li>
+        <li>Implemented a firmware-controlled power-up enable through an AXI register interface, CDC logic, and MMCM/ODDR reset gating while preserving higher-priority hardware safety lockouts</li>
+        <li>Re-architected Python build automation across the FPGA CI/CD pipeline, decoupling FSBL/PMUFW compilation from Vivado bitstream generation and reducing build time from ~60 to ~10 minutes</li>
+        <li>Designed an FPGA/firmware interlock for an electrogram-board I2C interface through the Xilinx AXI IIC tri-state path, verifying lockout behavior with assertion-based simulation and Vivado ILA</li>
+        <li>Rebuilt Python test infrastructure for FPGA dependency indexing, RTL rule checking, and linting, reducing the test-fixture footprint by 38,000 lines</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="role-line">
+        <h3>Undergraduate Research Assistant &mdash; UBC Electrical &amp; Computer Engineering</h3>
+        <span class="meta">Dec 2025 &ndash; May 2026</span>
+      </div>
+      <p class="meta">Prof. Guy Lemieux &middot; <a href="https://github.com/UBC-ORCA/riscv-debug-tutorial" target="_blank" rel="noopener">Project repository</a></p>
+      <ul>
+        <li>Reverse-engineered execution-based debugging in the CV32E20, an Ibex-derived RISC-V core, and published an open-source tutorial covering the complete GDB&ndash;OpenOCD&ndash;RISC-V Debug Module workflow</li>
+        <li>Extended a single-cycle RV32I processor with run-control debugging in SystemVerilog, implementing a debug FSM, four debug CSRs, ebreak/dret decoding, and next-PC redirection for halt and resume</li>
+        <li>Verified the halt&ndash;park&ndash;resume sequence, including dpc capture and restoration, using a self-checking Verilator testbench that emulated Debug Module requests</li>
+        <li>Received recognition from Prof. David Harris, co-author of <em>Digital Design and Computer Architecture</em>, who identified the work as a potential reference for an upcoming processor-debug chapter</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="role-line">
+        <h3>Firmware Lead &mdash; UBC Sailbot</h3>
         <span class="meta">Sep 2024 &ndash; Present</span>
       </div>
       <p class="meta">Vancouver, BC</p>
       <ul>
-        <li>Designed a battery enclosure, ensuring system compatibility, waterproofing, structural integrity, and size constraints</li>
-        <li>Developed firmware to automate battery testing using a Rigol DL3021A DC electronic load, enabling controlled variations in voltage and current for performance evaluation</li>
-        <li>Assembled MPPT current-sensing PCBs using surface-mount soldering and verified measurement accuracy under controlled loads</li>
-        <li>Developed power line diagrams to map and optimize battery pack connections with other electrical subsystems</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="role-line">
-        <h3>445 Constructions</h3>
-        <span class="meta">Summer 2022</span>
-      </div>
-      <p class="meta">Shiraz, Iran</p>
-      <ul>
-        <li>Supported cost estimation and budget analysis for construction projects</li>
-      </ul>
-    </div>
-
-    <div class="exp-item">
-      <div class="role-line">
-        <h3>Basketball Trainer &mdash; Mehran Basketball</h3>
-        <span class="meta">2022 &ndash; 2023</span>
-      </div>
-      <p class="meta">Shiraz, Iran</p>
-      <ul>
-        <li>Designed drills and personalized training programs focused on player development</li>
+        <li>Lead firmware development for an autonomous sailboat, coordinating embedded interfaces, telemetry, testing, and deliverables across the electrical team</li>
+        <li>Developed STM32 firmware for custom power-distribution boards, implementing battery voltage and temperature monitoring, CAN-FD communication with a Raspberry Pi, and controlled shutdown/restart sequencing</li>
+        <li>Designed a supercapacitor energy buffering board to stabilize the boat's power system during transient loads</li>
       </ul>
     </div>
   </section>
@@ -82,16 +89,9 @@
     <div class="exp-item">
       <div class="role-line">
         <h3>University of British Columbia</h3>
-        <span class="meta">Aug 2023 &ndash; May 2027</span>
+        <span class="meta">Sep 2024 &ndash; May 2028</span>
       </div>
-      <p class="meta">Bachelor of Applied Science, Electrical Engineering &middot; Vancouver, BC</p>
-    </div>
-    <div class="exp-item">
-      <div class="role-line">
-        <h3>Sampad &mdash; National Organization for Development of Exceptional Talents</h3>
-        <span class="meta">Sep 2016 &ndash; May 2023</span>
-      </div>
-      <p class="meta">High School Diploma &middot; Shiraz, Iran</p>
+      <p class="meta">Bachelor of Applied Science, Electrical Engineering &middot; Dean's Honour Roll &middot; Vancouver, BC</p>
     </div>
   </section>
 
@@ -99,18 +99,28 @@
     <h2>Skills</h2>
     <div class="skills-grid">
       <span class="skill-pill">Verilog / SystemVerilog</span>
-      <span class="skill-pill">C</span>
-      <span class="skill-pill">Assembly</span>
+      <span class="skill-pill">VHDL</span>
+      <span class="skill-pill">AXI4 / Avalon-MM</span>
+      <span class="skill-pill">Clock Domain Crossing</span>
+      <span class="skill-pill">Timing Analysis</span>
+      <span class="skill-pill">HPS&ndash;FPGA Integration</span>
+      <span class="skill-pill">C / Embedded C</span>
       <span class="skill-pill">Python</span>
-      <span class="skill-pill">MATLAB</span>
-      <span class="skill-pill">ModelSim</span>
-      <span class="skill-pill">Intel Quartus Prime</span>
-      <span class="skill-pill">FPGA</span>
-      <span class="skill-pill">Digital Verification (Testbenches)</span>
-      <span class="skill-pill">Gate-Level Simulation</span>
-      <span class="skill-pill">Oscilloscope</span>
-      <span class="skill-pill">Load Supply</span>
-      <span class="skill-pill">Multimeter</span>
+      <span class="skill-pill">Tcl</span>
+      <span class="skill-pill">Assembly (8051, PicoBlaze)</span>
+      <span class="skill-pill">Xilinx Zynq UltraScale+</span>
+      <span class="skill-pill">Xilinx Vivado / Vitis</span>
+      <span class="skill-pill">Altera DE1-SoC / Quartus</span>
+      <span class="skill-pill">STM32</span>
+      <span class="skill-pill">ModelSim / Active HDL</span>
+      <span class="skill-pill">Verilator</span>
+      <span class="skill-pill">Vivado ILA</span>
+      <span class="skill-pill">Git</span>
+      <span class="skill-pill">TeamCity CI</span>
+      <span class="skill-pill">OpenOCD / GDB</span>
+      <span class="skill-pill">Altium Designer</span>
+      <span class="skill-pill">LTspice</span>
+      <span class="skill-pill">Oscilloscope / Multimeter</span>
       <span class="skill-pill">Soldering</span>
     </div>
   </section>
