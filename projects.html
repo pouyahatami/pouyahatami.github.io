@@ -90,6 +90,19 @@
     </div>
 
     <div class="card">
+      <h3>Nios II DDS / LFSR / Clock-Domain-Crossing System</h3>
+      <p class="meta">SystemVerilog, Verilog &middot; DE1-SoC FPGA, Nios II &middot; Platform Designer (Qsys), ModelSim, SignalTap</p>
+      <p>Custom Avalon-MM peripherals for a Nios II soft-processor system built in Platform Designer: a direct digital synthesis waveform generator and an LFSR-based interrupt source, bridged across clock domains by custom synchronizers.</p>
+      <ul>
+        <li>Built a DDS waveform generator: a 32-bit phase accumulator driving a sine/cosine lookup table, with square and sawtooth outputs derived from the same phase</li>
+        <li>Designed an LFSR to generate a pseudo-random interrupt source for the Nios II processor</li>
+        <li>Implemented two-flop clock-domain-crossing synchronizers bridging the Nios II and 50MHz board clock domains in both directions</li>
+        <li>Verified every module in ModelSim, then confirmed the LFSR and CDC paths on hardware with SignalTap</li>
+      </ul>
+      <a class="source-link" href="https://github.com/pouyahatami/nios-dds-cdc" target="_blank" rel="noopener">View source &rarr;</a>
+    </div>
+
+    <div class="card">
       <h3>RC4 Deciphering Circuit</h3>
       <p class="meta">Jun 2025 &middot; SystemVerilog, VHDL &middot; DE1-SoC FPGA &middot; ModelSim, Quartus, SignalTap</p>
       <p>A decryption circuit targeting the RC4 stream cipher, using a brute-force approach to explore the entire keyspace and identify the correct key.</p>
