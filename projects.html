@@ -22,23 +22,23 @@
 
 <main class="wrap">
   <h1>Projects</h1>
-  <p class="lede">Hardware and firmware projects, from FPGA processors and a hand-built GPU to real-time embedded control.</p>
+  <p class="lede">Hardware and firmware projects, from FPGA processors and a hand-built SIMD accelerator to real-time embedded control.</p>
 
   <section style="margin-top:40px;">
 
     <div class="card flagship">
       <p class="tag">Flagship</p>
-      <h3>DE1-SoC GPU</h3>
+      <h3>SIMT Matrix Multiply Accel</h3>
       <p class="meta">Dec 2025 &middot; SystemVerilog &middot; DE1-SoC FPGA (Cyclone V) &middot; ModelSim, Quartus</p>
-      <p>A SIMT-style GPU computing parameterized N&times;N matrix multiplication across multiple hardware cores, with all RTL hand-written &mdash; no vendor GPU IP.</p>
+      <p>A fixed-function SIMD accelerator computing parameterized N&times;N matrix multiplication across multiple hardware cores, with all RTL hand-written &mdash; no vendor IP. First milestone toward a full SIMT GPU (see the repo roadmap): it doesn't have an ISA yet.</p>
       <ul>
         <li>Designed a 4-core shared-memory architecture with round-robin arbitration across read and write ports</li>
         <li>Built a dispatcher FSM to assign work blocks to cores, with race-condition guards for same-cycle done/start handoffs</li>
         <li>Implemented an 8-state per-core scheduler driving independent A/B operand fetches and a fused multiply-add pipeline</li>
         <li>Parameterized memory read latency to bridge a simulation/hardware mismatch that produced silent output corruption on real hardware</li>
-        <li>Verified every module with unit testbenches, plus a full-system ModelSim testbench and DE1-SoC synthesis</li>
+        <li>Verified every module with unit testbenches and a full-system ModelSim testbench, then confirmed the matrix-multiply readback against a golden model on hardware via the Quartus In-System Memory Content Editor</li>
       </ul>
-      <a class="source-link" href="https://github.com/pouyahatami/de1-soc-gpu" target="_blank" rel="noopener">View source &rarr;</a>
+      <a class="source-link" href="https://github.com/pouyahatami/simt-matrix-multiply-accel" target="_blank" rel="noopener">View source &rarr;</a>
     </div>
 
     <div class="card flagship">
