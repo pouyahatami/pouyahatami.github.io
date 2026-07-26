@@ -22,7 +22,7 @@
 
 <main class="wrap">
   <h1>Projects</h1>
-  <p class="lede">Hardware and firmware projects, from FPGA processors and a hand-built SIMD accelerator to real-time embedded control.</p>
+  <p class="lede">Hardware and firmware projects, from FPGA processors and a hand-built SIMT accelerator to real-time embedded control.</p>
 
   <section style="margin-top:40px;">
 
@@ -30,7 +30,7 @@
       <p class="tag">Flagship</p>
       <h3>SIMT Matrix Multiply Accel</h3>
       <p class="meta">Dec 2025 &middot; SystemVerilog &middot; DE1-SoC FPGA (Cyclone V) &middot; ModelSim, Quartus</p>
-      <p>A fixed-function SIMD accelerator computing parameterized N&times;N matrix multiplication across multiple hardware cores, with all RTL hand-written &mdash; no vendor IP. First milestone toward a full SIMT GPU (see the repo roadmap): it doesn't have an ISA yet.</p>
+      <p>A fixed-function SIMT accelerator computing parameterized N&times;N matrix multiplication across multiple hardware cores, with all RTL hand-written &mdash; no vendor IP. First milestone toward a full SIMT GPU: it doesn't have an ISA yet.</p>
       <ul>
         <li>Designed a 4-core shared-memory architecture with round-robin arbitration across read and write ports</li>
         <li>Built a dispatcher FSM to assign work blocks to cores, with race-condition guards for same-cycle done/start handoffs</li>
@@ -52,7 +52,6 @@
         <li>Verified the halt&ndash;park&ndash;resume sequence, including dpc capture and restoration, with a self-checking Verilator testbench emulating Debug Module requests</li>
         <li>Work recognized by Prof. David Harris, co-author of <em>Digital Design and Computer Architecture</em>, as a potential reference for an upcoming processor-debug chapter</li>
       </ul>
-      <img src="assets/images/dmi-architecture.svg" alt="DMI (Debug Module Interface) bus connecting the Debug Transport Module (manager) to the Debug Module (subordinate)" style="width:100%; margin-top:16px; border:1px solid var(--border); border-radius:10px;" loading="lazy">
       <a class="source-link" href="https://github.com/UBC-ORCA/riscv-debug-tutorial" target="_blank" rel="noopener">View tutorial &rarr;</a>
     </div>
 
