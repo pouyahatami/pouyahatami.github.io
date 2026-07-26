@@ -216,6 +216,31 @@ section {
   width: auto;
 }
 
+.bio-header {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.headshot {
+  width: 160px;
+  height: auto;
+  border-radius: 12px;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 600px) {
+  .bio-header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+  .headshot {
+    width: 140px;
+  }
+}
+
 .photo-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
