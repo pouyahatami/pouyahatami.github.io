@@ -218,27 +218,18 @@ section {
 
 .bio-header {
   display: flex;
-  gap: 28px;
-  align-items: flex-start;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 4px;
 }
 
 .headshot {
-  width: 160px;
-  height: auto;
-  border-radius: 12px;
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
   flex-shrink: 0;
   border: 1px solid var(--border);
-}
-
-@media (max-width: 600px) {
-  .bio-header {
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-  }
-  .headshot {
-    width: 140px;
-  }
 }
 
 .photo-gallery {
