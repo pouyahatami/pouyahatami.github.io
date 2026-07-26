@@ -223,6 +223,15 @@ section {
   margin-top: 18px;
 }
 
+.project-video {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-top: 16px;
+  background: #000;
+}
+
 .photo-gallery img {
   width: 100%;
   height: auto;

@@ -69,6 +69,28 @@
       <a class="source-link" href="https://github.com/pouyahatami/fpga-ipod" target="_blank" rel="noopener">View source &rarr;</a>
     </div>
 
+    <div class="card flagship">
+      <p class="tag">Team Project</p>
+      <h3>Piano-Playing Robot</h3>
+      <p class="meta">UBC ELEC 391 Design Studio II, Group 9 &middot; STM32 (NUCLEO-C051C8), Python &middot; Altium</p>
+      <p>A robot that plays piano: a rack-and-pinion platform carries a bank of solenoid-driven fingers along the keyboard, striking keys under six solenoids (three black-key, three white-key) while a DC motor with encoder feedback positions the carriage.</p>
+      <ul>
+        <li>Led firmware on the STM32 (NUCLEO-C051C8): closed-loop PWM motor control with encoder feedback for rail positioning, and precisely timed solenoid actuation for key strikes</li>
+        <li>Built the serial link between a Python GUI and the firmware, parsing MIDI files into timed note/position sequences for playback</li>
+        <li>Integrated a custom motor driver board and solenoid driver board (PCB design by teammate David Tang) distributing 12V/5V power to the motor and six solenoids</li>
+        <li>Tuned homing behavior and corrected carriage overshoot through iterative on-hardware testing</li>
+      </ul>
+      <div class="photo-gallery">
+        <img src="assets/images/robo-team.jpg" alt="The six-person ELEC 391 Group 9 team holding the piano-playing robot" loading="lazy">
+        <img src="assets/images/robo-cad.jpg" alt="CAD render of the robot's acrylic enclosure and rack-and-rail platform" loading="lazy">
+      </div>
+      <video class="project-video" controls preload="metadata" src="assets/video/robo-demo.mov">
+        Your browser doesn't support embedded video &mdash; <a href="assets/video/robo-demo.mov">download the demo</a>.
+      </video>
+      <p class="meta" style="margin-top:8px;">Firmware led by Pouya Hatami, with Ryan Chan and Nathan Zhang &middot; PCB design by David Tang &middot; team of six</p>
+      <a class="source-link" href="https://github.com/nathanz10/robo" target="_blank" rel="noopener">View source &rarr;</a>
+    </div>
+
     <div class="card">
       <h3>RC4 Deciphering Circuit</h3>
       <p class="meta">Jun 2025 &middot; SystemVerilog, VHDL &middot; DE1-SoC FPGA &middot; ModelSim, Quartus, SignalTap</p>
