@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 500" role="img" aria-labelledby="title desc">
+  <title id="title">RV32I five-stage processor architecture</title>
+  <desc id="desc">Instruction flow moves through fetch, decode, execute, memory, and writeback, coordinated by hazard, CSR, trap, interrupt, UART, and debug logic, and checked against Spike.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#91a7ff"/></marker>
+    <style>
+      .t{font:600 20px system-ui,sans-serif;fill:#f8fafc}.s{font:500 14px system-ui,sans-serif;fill:#cbd5e1}.k{font:700 13px system-ui,sans-serif;fill:#a5b4fc;letter-spacing:1px}.box{fill:#172554;stroke:#7c9cff;stroke-width:2}.aux{fill:#162033;stroke:#4f6aa3;stroke-width:1.5}.line{fill:none;stroke:#91a7ff;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1120" height="500" rx="18" fill="#0f172a"/>
+  <text x="44" y="48" class="k">RV32I PIPELINED PROCESSOR</text>
+  <g transform="translate(44 86)">
+    <g transform="translate(0 0)"><rect class="box" width="178" height="94" rx="10"/><text class="t" x="89" y="40" text-anchor="middle">IF</text><text class="s" x="89" y="65" text-anchor="middle">Fetch + PC</text></g>
+    <g transform="translate(212 0)"><rect class="box" width="178" height="94" rx="10"/><text class="t" x="89" y="40" text-anchor="middle">ID</text><text class="s" x="89" y="65" text-anchor="middle">Decode + Regfile</text></g>
+    <g transform="translate(424 0)"><rect class="box" width="178" height="94" rx="10"/><text class="t" x="89" y="40" text-anchor="middle">EX</text><text class="s" x="89" y="65" text-anchor="middle">ALU + Branch</text></g>
+    <g transform="translate(636 0)"><rect class="box" width="178" height="94" rx="10"/><text class="t" x="89" y="40" text-anchor="middle">MEM</text><text class="s" x="89" y="65" text-anchor="middle">Load / Store</text></g>
+    <g transform="translate(848 0)"><rect class="box" width="178" height="94" rx="10"/><text class="t" x="89" y="40" text-anchor="middle">WB</text><text class="s" x="89" y="65" text-anchor="middle">Retire + Writeback</text></g>
+    <path class="line" d="M178 47H208"/><path class="line" d="M390 47H420"/><path class="line" d="M602 47H632"/><path class="line" d="M814 47H844"/>
+  </g>
+  <g transform="translate(44 230)">
+    <rect class="aux" width="300" height="78" rx="10"/><text class="t" x="150" y="32" text-anchor="middle">Hazard + Forwarding</text><text class="s" x="150" y="55" text-anchor="middle">stalls · bypasses · pipeline flushes</text>
+    <rect class="aux" x="326" width="300" height="78" rx="10"/><text class="t" x="476" y="32" text-anchor="middle">CSR + Trap Control</text><text class="s" x="476" y="55" text-anchor="middle">M-mode · exceptions · timer IRQ</text>
+    <rect class="aux" x="652" width="374" height="78" rx="10"/><text class="t" x="839" y="32" text-anchor="middle">Memory-mapped I/O</text><text class="s" x="839" y="55" text-anchor="middle">UART · machine timer · external debug</text>
+  </g>
+  <path d="M300 230V184" class="line"/><path d="M520 230V184" class="line"/><path d="M780 230V184" class="line"/>
+  <g transform="translate(44 374)">
+    <rect x="0" y="0" width="1026" height="78" rx="10" fill="#111c35" stroke="#3b82f6" stroke-dasharray="7 7"/>
+    <text class="t" x="190" y="33" text-anchor="middle">Self-checking regression</text><text class="s" x="190" y="57" text-anchor="middle">hazard · debug · CSR testbenches</text>
+    <path d="M385 39H498" class="line"/>
+    <text class="t" x="628" y="33" text-anchor="middle">Spike reference model</text><text class="s" x="628" y="57" text-anchor="middle">independent golden architectural state</text>
+    <text class="s" x="925" y="46" text-anchor="middle">Icarus + Verilator</text>
+  </g>
+</svg>

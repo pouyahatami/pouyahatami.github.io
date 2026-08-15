@@ -22,9 +22,25 @@
 
 <main class="wrap">
   <h1>Projects</h1>
-  <p class="lede">Hardware and firmware projects, from FPGA processors and a hand-built SIMT accelerator to real-time embedded control.</p>
+  <p class="lede">Hardware and firmware projects, from pipelined RISC-V processors and a hand-built SIMT accelerator to real-time embedded control.</p>
 
   <section style="margin-top:40px;">
+
+    <div class="card flagship">
+      <p class="tag">Newest project</p>
+      <h3>RV32I Pipelined Processor Core</h3>
+      <p class="meta">Jun 2026 &ndash; Present &middot; SystemVerilog &middot; RV32I, M-mode CSRs &middot; Spike, Icarus Verilog, Verilator, UVM</p>
+      <p>A five-stage RV32I processor core that grew from a single-cycle design into a pipelined system with privileged control flow, peripherals, and external debugging.</p>
+      <ul>
+        <li>Implemented instruction fetch, decode, execute, memory, and writeback stages with forwarding, load-use stalls, control-hazard flushing, and distance-3 RAW-hazard handling</li>
+        <li>Added M-mode CSRs, synchronous exceptions, machine-timer interrupts, memory-mapped UART, and external halt/resume debug</li>
+        <li>Verified hazard, debug, and CSR behavior with self-checking directed regressions under both Icarus Verilog and Verilator, using Spike-generated architectural state as the independent golden reference</li>
+        <li>Built a hazard-biased UVM environment with drivers, monitors, assertions, and a retirement scoreboard; it has elaborated against the Accellera library and is awaiting execution in a UVM-capable simulator</li>
+        <li>Documented real RTL failures uncovered during verification, including a distance-3 stale-register hazard and an incorrect-path flush following <code>dret</code></li>
+      </ul>
+      <img class="project-diagram" src="assets/diagrams/rv32i-pipeline.svg" alt="Block diagram of the five-stage RV32I pipeline, hazard and forwarding unit, CSR and trap control, timer interrupt, UART, external debug, and Spike-referenced verification" loading="lazy">
+      <a class="source-link" href="https://github.com/pouyahatami/riscv_cpu_project" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
+    </div>
 
     <div class="card flagship">
       <p class="tag">Flagship</p>
@@ -38,7 +54,8 @@
         <li>Parameterized memory read latency to bridge a simulation/hardware mismatch that produced silent output corruption on real hardware</li>
         <li>Verified every module with unit testbenches and a full-system ModelSim testbench, then confirmed the matrix-multiply readback against a golden model on hardware via the Quartus In-System Memory Content Editor</li>
       </ul>
-      <a class="source-link" href="https://github.com/pouyahatami/simt-matrix-multiply-accel" target="_blank" rel="noopener">View source &rarr;</a>
+      <img class="project-diagram" src="assets/diagrams/simt-architecture.svg" alt="Block diagram of the SIMT matrix accelerator showing the dispatcher, four compute cores, round-robin arbiter, shared A and B memories, output memory, and host readback" loading="lazy">
+      <a class="source-link" href="https://github.com/pouyahatami/simt-matrix-multiply-accel" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="card flagship">
@@ -52,7 +69,7 @@
         <li>Verified the halt&ndash;park&ndash;resume sequence, including dpc capture and restoration, with a self-checking Verilator testbench emulating Debug Module requests</li>
         <li>Work recognized by Prof. David Harris, co-author of <em>Digital Design and Computer Architecture</em>, as a potential reference for an upcoming processor-debug chapter</li>
       </ul>
-      <a class="source-link" href="https://github.com/UBC-ORCA/riscv-debug-tutorial" target="_blank" rel="noopener">View tutorial &rarr;</a>
+      <a class="source-link" href="https://github.com/UBC-ORCA/riscv-debug-tutorial" target="_blank" rel="noopener">View tutorial <span aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="card flagship">
@@ -66,7 +83,7 @@
         <li>Extended the system with a DSP audio-strength meter: a PicoBlaze interrupt routine accumulates 256 samples, averages them by a bit shift, and drives an LED readout of signal intensity in real time</li>
         <li>Verified both FSMs in ModelSim, then confirmed correct behavior live on hardware with the SignalTap Logic Analyzer</li>
       </ul>
-      <a class="source-link" href="https://github.com/pouyahatami/fpga-ipod" target="_blank" rel="noopener">View source &rarr;</a>
+      <a class="source-link" href="https://github.com/pouyahatami/fpga-ipod" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="card flagship">
@@ -86,7 +103,7 @@
       </div>
       <p class="meta" style="margin-top:12px;"><a href="robo-demo.html">Watch the demo video &rarr;</a></p>
       <p class="meta" style="margin-top:8px;">Firmware led by Pouya Hatami, with Ryan Chan and Nathan Zhang &middot; PCB design by Ben Heyfitch and David Tang &middot; team of six</p>
-      <a class="source-link" href="https://github.com/nathanz10/robo" target="_blank" rel="noopener">View source &rarr;</a>
+      <a class="source-link" href="https://github.com/nathanz10/robo" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="card">
@@ -99,7 +116,7 @@
         <li>Implemented two-flop clock-domain-crossing synchronizers bridging the Nios II and 50MHz board clock domains in both directions</li>
         <li>Verified every module in ModelSim, then confirmed the LFSR and CDC paths on hardware with SignalTap</li>
       </ul>
-      <a class="source-link" href="https://github.com/pouyahatami/nios-dds-cdc" target="_blank" rel="noopener">View source &rarr;</a>
+      <a class="source-link" href="https://github.com/pouyahatami/nios-dds-cdc" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
     </div>
 
     <div class="card">
@@ -112,19 +129,7 @@
         <li>Used the Quartus In-System Memory Content Editor to inspect RAM/ROM in real time and read the recovered plaintext back out as an ASCII message</li>
         <li>Verified KSA behavior and end-to-end decryption with ModelSim testbenches, then confirmed on hardware with SignalTap</li>
       </ul>
-      <a class="source-link" href="https://github.com/pouyahatami/rc4-deciphering-circuit" target="_blank" rel="noopener">View source &rarr;</a>
-    </div>
-
-    <div class="card">
-      <h3>16-bit RISC Processor</h3>
-      <p class="meta">Sep 2024 &middot; Verilog &middot; DE1-SoC FPGA &middot; ModelSim, Quartus</p>
-      <p>A 16-bit RISC processor designed and implemented in Verilog, then deployed on an FPGA.</p>
-      <ul>
-        <li>Built a datapath architecture &mdash; registers, ALU, and multiplexers &mdash; to perform arithmetic operations such as addition and subtraction</li>
-        <li>Designed a finite state machine (FSM) for instruction execution, automating control signals and managing state transitions</li>
-        <li>Wrote testbenches for each module to verify functional correctness through simulation</li>
-      </ul>
-      <a class="source-link" href="https://github.com/pouyahatami/simple-risc-machine" target="_blank" rel="noopener">View source &rarr;</a>
+      <a class="source-link" href="https://github.com/pouyahatami/rc4-deciphering-circuit" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
     </div>
 
   </section>
