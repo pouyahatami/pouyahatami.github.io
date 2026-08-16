@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About &mdash; Pouya Hatami</title>
 <meta name="description" content="About Pouya Hatami, Electrical & Computer Engineering student at UBC.">
-<link rel="stylesheet" href="style.css?v=20260815">
+<link rel="stylesheet" href="style.css?v=20260815-2">
 </head>
 <body>
 
@@ -16,6 +16,7 @@
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="about.html" class="active">About</a>
+      <a class="nav-resume" href="assets/Pouya_Hatami_Resume.pdf" download>R&eacute;sum&eacute;</a>
     </nav>
   </div>
 </header>
@@ -55,11 +56,12 @@
       </div>
       <p class="meta">Burnaby, BC</p>
       <ul>
-        <li>Root-caused and corrected ADC power-up sequencing across firmware and FPGA logic on two custom FPGA boards</li>
-        <li>Implemented a firmware-controlled power-up enable through an AXI register interface, CDC logic, and MMCM/ODDR reset gating while preserving higher-priority hardware safety lockouts</li>
-        <li>Re-architected Python build automation across the FPGA CI/CD pipeline, decoupling FSBL/PMUFW compilation from Vivado bitstream generation and reducing build time from ~60 to ~10 minutes</li>
-        <li>Designed an FPGA/firmware interlock for an electrogram-board I2C interface through the Xilinx AXI IIC tri-state path, verifying lockout behavior with assertion-based simulation and Vivado ILA</li>
-        <li>Rebuilt Python test infrastructure for FPGA dependency indexing, RTL rule checking, and linting, reducing the test-fixture footprint by 38,000 lines</li>
+        <li>Closed code-coverage gaps in AXI slave logic by creating a reusable, RAL-style VHDL test procedure library that classifies registers by access type and exercises the shared AXI interface across applicable testbenches</li>
+        <li>Designed an FPGA/firmware interlock for an I2C interface in VHDL through the Xilinx AXI IIC tri-state path, verifying lockout behavior with assertions and Vivado ILA</li>
+        <li>Implemented a firmware-controlled ADC reset architecture across five FPGA boards using AXI control, CDC synchronization, and MMCM/ODDR reset gating</li>
+        <li>Debugged AXI4 read-data corruption under <code>RREADY</code> backpressure across six slave peripherals and added stall procedures that raised coverage across five testbenches</li>
+        <li>Added a Python static-analysis check enforcing a safety-critical synthesis acceptance criterion across two vendor-tool syntax variants</li>
+        <li>Updated FPGA CI/CD automation to separate FSBL/PMUFW compilation from Vivado bitstream generation, reducing build time from approximately 60 to 10 minutes</li>
       </ul>
     </div>
 
@@ -101,7 +103,7 @@
     <div class="exp-item">
       <div class="role-line">
         <h3>University of British Columbia</h3>
-        <span class="meta">Sep 2024 &ndash; May 2028</span>
+        <span class="meta">Sep 2023 &ndash; May 2028</span>
       </div>
       <p class="meta">Bachelor of Applied Science, Electrical Engineering &middot; Dean's Honour Roll &middot; Vancouver, BC</p>
     </div>
@@ -112,11 +114,16 @@
     <div class="skills-grid">
       <span class="skill-pill">Verilog / SystemVerilog</span>
       <span class="skill-pill">VHDL</span>
+      <span class="skill-pill">RISC-V</span>
+      <span class="skill-pill">UVM</span>
+      <span class="skill-pill">SystemVerilog Assertions</span>
+      <span class="skill-pill">ISS-based Verification</span>
       <span class="skill-pill">AXI4 / Avalon-MM</span>
       <span class="skill-pill">Clock Domain Crossing</span>
       <span class="skill-pill">Timing Analysis</span>
       <span class="skill-pill">HPS&ndash;FPGA Integration</span>
       <span class="skill-pill">C / Embedded C</span>
+      <span class="skill-pill">C++</span>
       <span class="skill-pill">Python</span>
       <span class="skill-pill">Tcl</span>
       <span class="skill-pill">Assembly (8051, PicoBlaze)</span>
@@ -127,6 +134,7 @@
       <span class="skill-pill">ModelSim / Active HDL</span>
       <span class="skill-pill">Verilator</span>
       <span class="skill-pill">Vivado ILA</span>
+      <span class="skill-pill">ALINT-PRO</span>
       <span class="skill-pill">Git</span>
       <span class="skill-pill">TeamCity CI</span>
       <span class="skill-pill">OpenOCD / GDB</span>
@@ -157,4 +165,3 @@
 
 </body>
 </html>
-

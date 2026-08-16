@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects &mdash; Pouya Hatami</title>
 <meta name="description" content="FPGA, embedded systems, and firmware projects by Pouya Hatami.">
-<link rel="stylesheet" href="style.css?v=20260815">
+<link rel="stylesheet" href="style.css?v=20260815-2">
 </head>
 <body>
 
@@ -16,6 +16,7 @@
       <a href="index.html">Home</a>
       <a href="projects.html" class="active">Projects</a>
       <a href="about.html">About</a>
+      <a class="nav-resume" href="assets/Pouya_Hatami_Resume.pdf" download>R&eacute;sum&eacute;</a>
     </nav>
   </div>
 </header>
@@ -55,6 +56,10 @@
         <li>Verified every module with unit testbenches and a full-system ModelSim testbench, then confirmed the matrix-multiply readback against a golden model on hardware via the Quartus In-System Memory Content Editor</li>
       </ul>
       <img class="project-diagram" src="assets/diagrams/simt-architecture.svg" alt="Block diagram of the SIMT matrix accelerator showing the dispatcher, four compute cores, round-robin arbiter, shared A and B memories, output memory, and host readback" loading="lazy">
+      <figure class="project-evidence">
+        <img src="assets/images/simt-matrix-readback.png" alt="Annotated Quartus In-System Memory Content Editor screenshot showing all sixteen matrix multiplication output words matching the expected golden-model values" loading="lazy">
+        <figcaption>Hardware readback in Quartus: all 16 matrix-product words from FPGA RAM match the golden model.</figcaption>
+      </figure>
       <a class="source-link" href="https://github.com/pouyahatami/simt-matrix-multiply-accel" target="_blank" rel="noopener">View source <span aria-hidden="true">&rarr;</span></a>
     </div>
 

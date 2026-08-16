@@ -81,6 +81,19 @@ nav a.active {
   color: var(--accent);
 }
 
+nav a.nav-resume {
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  padding: 5px 10px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+nav a.nav-resume:hover {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
 main {
   padding-bottom: 80px;
 }
@@ -136,6 +149,23 @@ a {
 
 .links a:hover {
   text-decoration: underline;
+}
+
+.links .download-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 7px 12px;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  background: var(--accent);
+  color: var(--accent-contrast);
+  font-weight: 650;
+}
+
+.links .download-link:hover {
+  filter: brightness(1.08);
+  text-decoration: none;
 }
 
 .card {
@@ -203,6 +233,24 @@ a {
   border: 1px solid var(--border);
   border-radius: 10px;
   background: #0f172a;
+}
+
+.project-evidence {
+  margin: 20px 0 0;
+}
+
+.project-evidence img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.project-evidence figcaption {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
 }
 
 section {
