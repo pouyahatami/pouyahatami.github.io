@@ -55,7 +55,7 @@
         <li>Parameterized memory read latency to bridge a simulation/hardware mismatch that produced silent output corruption on real hardware</li>
         <li>Verified every module with unit testbenches and a full-system ModelSim testbench, then confirmed the matrix-multiply readback against a golden model on hardware via the Quartus In-System Memory Content Editor</li>
       </ul>
-      <img class="project-diagram" src="assets/diagrams/simt-architecture.svg" alt="Block diagram of the SIMT matrix accelerator showing the dispatcher, four compute cores, round-robin arbiter, shared A and B memories, output memory, and host readback" loading="lazy">
+      <img class="project-diagram" src="assets/diagrams/simt-architecture.svg?v=2" alt="Block diagram of the SIMT matrix accelerator showing the dispatcher, four compute cores, round-robin arbiter, shared A and B memories, and output memory" loading="lazy">
       <figure class="project-evidence">
         <img src="assets/images/simt-matrix-readback.png" alt="Annotated Quartus In-System Memory Content Editor screenshot showing all sixteen matrix multiplication output words matching the expected golden-model values" loading="lazy">
         <figcaption>Hardware readback in Quartus: all 16 matrix-product words from FPGA RAM match the golden model.</figcaption>
